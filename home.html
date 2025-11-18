@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #000;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 20px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 20px;
+      gap: 15px;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #fff;
+      background: rgba(50, 50, 50, 0.8);
+      padding: 10px 18px;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      background: #333;
+      color: #ffeb3b;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 60px 20px;
+      background: rgba(20,20,20,0.8);
+      border-radius: 12px;
+      margin-top: 20px;
+      color: #fff;
+      text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    header h1 {
+      margin: 0 0 10px 0;
+      font-size: 3rem;
+      color: #f39c12;
+    }
+
+    header p {
+      font-size: 16px;
+      color: #ddd;
+      max-width: 400px;
+    }
+
+    header img.profile {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 4px solid #f39c12;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(255,255,255,0.2);
+    }
+
+    section, main {
+      background: #111;
+      padding: 30px;
+      border-radius: 12px;
+      margin: 30px 0;
+      box-shadow: 0 4px 12px rgba(255,255,255,0.1);
+      color: #fff;
+    }
+
+    section h2 {
+      text-align: center;
+      color: #f39c12;
+      margin-bottom: 20px;
+    }
+
+    section p {
+      text-align: center;
+      color: #ddd;
+      line-height: 1.8;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .project-card {
+      padding: 25px;
+      border-radius: 12px;
+      border-top: 5px solid #f39c12;
+      box-shadow: 0 4px 12px rgba(255,255,255,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+      cursor: pointer;
+      background: #222;
+      color: #fff;
+    }
+
+    .project-card:hover {
+      transform: translateY(-5px) scale(1.03);
+      box-shadow: 0 8px 20px rgba(255,255,255,0.2);
+    }
+
+    .project-card h3 {
+      margin-top: 0;
+      color: #f39c12;
+    }
+
+    .project-card p.description {
+      font-size: 16px;
+      color: #ddd;
+    }
+
+    .contact-container {
+      max-width: 700px;
+      margin: 50px auto;
+      background: #111;
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(255,255,255,0.1);
+      text-align: center;
+      color: #fff;
+    }
+
+    .contact-container h1 {
+      color: #f39c12;
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .contact-form label {
+      text-align: left;
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #555;
+      font-size: 16px;
+      outline: none;
+      background: #222;
+      color: #fff;
+    }
+
+    .contact-form textarea {
+      height: 120px;
+      resize: none;
+    }
+
+    .contact-form button {
+      margin-top: 12px;
+      padding: 12px 20px;
+      font-size: 16px;
+      border: none;
+      background: #f39c12;
+      color: #000;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .contact-form button:hover {
+      background: #ffeb3b;
+    }
+
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 20px;
+      color: #fff;
+      border-radius: 8px;
+      margin-top: 20px;
+    }
+
+    .footer-contact {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 50px;
+      flex-wrap: wrap;
+      margin-bottom: 15px;
+    }
+
+    .footer-contact a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+    }
+
+    .footer-contact a img {
+      width: 30px;
+      height: 30px;
+    }
+
+    footer .social-icons {
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    footer .social-icons img {
+      width: 40px;
+      height: 40px;
+      transition: transform 0.3s;
+      filter: brightness(0) invert(1);
+    }
+
+    footer .social-icons img:hover {
+      transform: scale(1.2);
+    }
+
+    @media (max-width: 768px) {
+      main {
+        grid-template-columns: 1fr;
+      }
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+      header h1 {
+        font-size: 2.5rem;
+      }
+      header img.profile {
+        width: 120px;
+        height: 120px;
+      }
+      .footer-contact {
+        flex-direction: column;
+        gap: 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <nav>
+      <a href="#about">About Me</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <header>
+      <div>
+        <h1>KETI DEREJE</h1>
+
+      </div>
+      <img src="logo2.jpg" alt="Samuel Elias" class="profile">
+    </header>
+
+    <section id="about">
+      <h2>About Me</h2>
+      <p>
+        I’m a beginner web developer passionate about creating clean, responsive, and user-friendly websites. 
+        I enjoy learning new web technologies and building small projects to strengthen my skills. 
+        I am currently a grade 12 student with a passion for coding and technology, and I enjoy watching football. 
+        I'm improving my skills in <strong>HTML, CSS, and JavaScript</strong>.
+      </p>
+    </section>
+
+    <section id="projects-section">
+      <h2 style="color: ;">Projects</h2>
+      <main id="projects">
+        <div class="project-card">
+          <h3>Food Delivery Website</h3>
+          <p class="description">A beginner project showcasing a simple food delivery website with menus, ordering options, and responsive design.</p>
+        </div>
+        <div class="project-card">
+          <h3>Simple HTML Website</h3>
+          <p class="description">A static HTML website built to practice layout, navigation, and content structuring.</p>
+        </div>
+        <div class="project-card">
+          <h3>E-Commerce Project</h3>
+          <p class="description">A small e-commerce project demonstrating product listing, cart design, and basic interactivity using HTML and CSS.</p>
+        </div>
+      </main>
+    </section>
+
+    <div class="contact-container" id="contact">
+      <h1>Contact Me</h1>
+      <form class="contact-form" onsubmit="sendMessage(event)">
+        <label>First Name</label>
+        <input type="text" required>
+
+        <label>Last Name</label>
+        <input type="text">
+
+        <label>Email Address</label>
+        <input type="email" required>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+
+    <footer>
+      <div class="footer-contact">
+        <a href="mailto:ketidereje1@gmail.com">
+          <img src="inbox.jpg" alt="Email"> ketidereje1@gmail.com
+        </a>
+        <a href="https://t.me/munkt34" target="_blank">
+          <img src="telegram.jpg" alt="Telegram"> Telegram
+        </a>
+        <a href="https://maps.app.goo.gl/vYVhw94kAXCPyWzW7" target="_blank">
+          <img src="map.jpg" alt="Location"> Addis Ababa, Ethiopia
+        </a>
+      </div>
+      <p>© 2025 KETI DEREJE</p>
+    </footer>
+  </div>
+
+  <script>
+    function sendMessage(event) {
+      event.preventDefault(); // Prevent form submission
+      alert("Your message has been sent successfully!");
+    }
+  </script>
+</body>
+</html>
